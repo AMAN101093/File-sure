@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LLPIN checker | FileSure</title>
+<meta name="description" content="Validate the format of a Limited Liability Partnership Identification Number (LLPIN).">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-kind="LLPIN">
+<header class="site-header">
+  <div class="wrap bar">
+    <a class="wordmark" href="index.html" aria-label="FileSure home">FileSure</a>
+    <nav class="nav" aria-label="Checkers">
+      <a href="index.html">CIN Checker</a>
+      <a href="llpin.html" aria-current="page">LLPIN Checker</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <h1>Understand your LLPIN.</h1>
+    <p>Validate the format of LLP Identification Numbers: three letters, a hyphen and four digits, like AAA-1234. An LLPIN does not encode state, year or type.</p>
+  </section>
+
+  <section aria-labelledby="in-label">
+    <label id="in-label" for="input" class="field-label">Paste LLPINs, one per line</label>
+    <textarea id="input" spellcheck="false" autocomplete="off" autocapitalize="characters" rows="8"
+      placeholder="AAA-1234&#10;ABC-0012"></textarea>
+    <div class="actions">
+      <button id="check" class="btn primary" type="button">Check LLPINs</button>
+      <button id="clear" class="btn" type="button">Clear</button>
+      <button id="sample" class="btn link" type="button">Try sample input</button>
+      <span id="count" class="count" aria-live="polite"></span>
+    </div>
+    <p class="disclaimer" role="note">This tool validates identifier structure and decodes encoded fields. It does not verify company or LLP existence, registration status, or current listing status against the MCA registry.</p>
+  </section>
+
+  <section id="results" class="results" aria-live="polite" hidden>
+    <div id="summary" class="summary"></div>
+    <label class="filter"><input type="checkbox" id="only-invalid"> Show invalid only</label>
+    <div id="list"></div>
+  </section>
+</main>
+
+<footer class="site-footer"><div class="wrap">FileSure &middot; Format checks run in your browser. Nothing you paste is sent anywhere.</div></footer>
+
+<script src="src/reference-data.js"></script>
+<script src="src/validator.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>
