@@ -1,21 +1,16 @@
-// UI only. All validation comes from CinChecker (validator.js) via CinBatch (batch.js).
+// UI only. All validation comes from CinChecker (validator.js). Each page sets data-kind on <body>.
 (function () {
   'use strict';
   const $ = (id) => document.getElementById(id);
+  const KIND = document.body.dataset.kind; // 'CIN' or 'LLPIN', set on <body> of each page
+  const OTHER = KIND === 'CIN' ? { href: 'llpin.html', name: 'LLPIN checker' } : { href: 'index.html', name: 'CIN checker' };
   const input = $('input'), results = $('results'), summaryEl = $('summary'), list = $('list'), count = $('count');
 
-  const SAMPLE = [
-    'L17110MH1973PLC019786',
-    'U40108CT2003SGC015822',
-    'AAA-1234',
-    'u74999ut2020ptc123456',
-    '',
-    'U22120CG2014PTC001277',
-    'U12345UW1998PLC000001',
-    'U12345MH2030PTC000001',
-    'AAA1234',
-    'l17110mh1973plc019786',
-  ].join('\n');
+  const SAMPLES = {
+    CIN: ['L17110MH1973PLC019786', 'U40108CT2003SGC015822', 'u74999ut2020ptc123456', '', 'U22120CG2014PTC001277',
+      'U12345UW1998PLC000001', 'U12345MH2030PTC000001', 'AAA-1234', 'l17110mh1973plc019786'].join('\n'),
+    LLPIN: ['AAA-1234', 'ABC-0012', 'aaa-1234', '', 'AAA1234', 'AA-1234', 'AAA-12345', 'L17110MH1973PLC019786'].join('\n'),
+  };
 
   const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
@@ -57,7 +52,7 @@
   }
 
   function card(r) {
-    const errs = r.errors.length ? '<ul class="errors">' + r.errors.map((e) => '<li>' + esc(e.message) + '</li>').join('') + '</ul>' : '';
+    const errs = r.errors.length ? '<ul class="errors">' + r.errors.map((e) => '<li>' + esc(e.message) + (/^This looks like an? (LLPIN|CIN)/.test(e.message) ? ' <a href="' + OTHER.href + '">Open the ' + OTHER.name + '.</a>' : '') + '</li>').join('') + '</ul>' : '';
     const dup = r.duplicateOf ? '<span class="tag dup">Duplicate of line ' + r.duplicateOf + '</span>' : '';
     return '<article class="card ' + (r.valid ? 'valid' : 'invalid') + '"><div class="card-head">' +
       '<span class="status">' + (r.valid ? 'Valid format' : 'Invalid') + '</span><code class="id">' + esc(r.input.trim()) + '</code>' +
@@ -67,10 +62,10 @@
 
   function run() {
     results.hidden = false;
-    const { results: rs, summary: s } = CinBatch.checkMixed(input.value);
+    const { results: rs, summary: s } = CinChecker.checkList(input.value, KIND);
     if (!rs.length) {
       summaryEl.hidden = true;
-      list.innerHTML = '<p class="empty">Nothing to check yet. Paste a CIN such as L17110MH1973PLC019786 or an LLPIN such as AAA-1234, one per line.</p>';
+      list.innerHTML = '<p class="empty">Nothing to check yet. Paste ' + (KIND === 'CIN' ? 'a CIN such as L17110MH1973PLC019786' : 'an LLPIN such as AAA-1234') + ', one per line.</p>';
       return;
     }
     summaryEl.hidden = false;
@@ -82,7 +77,7 @@
 
   $('check').addEventListener('click', run);
   $('clear').addEventListener('click', () => { input.value = ''; results.hidden = true; updateCount(); input.focus(); });
-  $('sample').addEventListener('click', () => { input.value = SAMPLE; updateCount(); run(); });
+  $('sample').addEventListener('click', () => { input.value = SAMPLES[KIND]; updateCount(); run(); });
   $('only-invalid').addEventListener('change', (e) => results.classList.toggle('only-invalid', e.target.checked));
   input.addEventListener('input', updateCount);
 })();
