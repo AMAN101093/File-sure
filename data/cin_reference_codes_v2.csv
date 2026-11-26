@@ -1,0 +1,61 @@
+﻿code,meaning,type,status,notes
+L,Listed company,listing,current,Position 1. Structural listing indicator only; it does not confirm live exchange listing status.
+U,Unlisted company,listing,current,Position 1. Structural listing indicator only; it does not confirm current company status.
+AN,Andaman and Nicobar Islands,state,current,MCA state-code reference; commonly used as a CIN location token.
+AP,Andhra Pradesh,state,current,MCA state-code reference; commonly used as a CIN location token.
+AR,Arunachal Pradesh,state,current,MCA state-code reference; commonly used as a CIN location token.
+AS,Assam,state,current,MCA state-code reference; commonly used as a CIN location token.
+BR,Bihar,state,current,MCA state-code reference; commonly used as a CIN location token.
+CG,Chhattisgarh,state,alias,MCA state-abbreviation code. Official Chhattisgarh company CIN examples use CT; do not accept CG as a CIN token by default.
+CH,Chandigarh,state,current,MCA state-code reference; commonly used as a CIN location token.
+CT,Chhattisgarh,state,current,Verified in official Chhattisgarh company CIN records and MCA-published CIN examples. Use CT for CIN parsing.
+DD,Daman and Diu,state,legacy,Historical territory code; Daman and Diu merged with Dadra and Nagar Haveli in 2020.
+DH,Dadra and Nagar Haveli,state,alias,MCA state-abbreviation-table form; published CIN examples also show DN.
+DL,Delhi,state,current,MCA state-code reference; commonly used as a CIN location token.
+DN,Dadra and Nagar Haveli and Daman and Diu,state,observed,Observed in published CIN records for the merged Union Territory; secondary-record evidence.
+GA,Goa,state,current,MCA state-code reference; commonly used as a CIN location token.
+GJ,Gujarat,state,current,MCA state-code reference; commonly used as a CIN location token.
+HP,Himachal Pradesh,state,current,MCA state-code reference; commonly used as a CIN location token.
+HR,Haryana,state,current,MCA state-code reference; commonly used as a CIN location token.
+JH,Jharkhand,state,current,MCA state-code reference; commonly used as a CIN location token.
+JK,Jammu and Kashmir,state,current,MCA state-code reference; existing CINs may retain this code after the 2019 reorganisation.
+KA,Karnataka,state,current,MCA state-code reference; commonly used as a CIN location token.
+KL,Kerala,state,current,MCA state-code reference; commonly used as a CIN location token.
+LA,Ladakh,state,alias,MCA state-abbreviation-table form; published CIN records have also been reported with LH.
+LD,Lakshadweep,state,current,MCA state-code reference; commonly used as a CIN location token.
+LH,Ladakh,state,observed,Observed in published CIN records; MCA state-abbreviation tables use LA. Secondary-record evidence.
+MH,Maharashtra,state,current,MCA state-code reference; commonly used as a CIN location token.
+ML,Meghalaya,state,current,MCA state-code reference; commonly used as a CIN location token.
+MN,Manipur,state,current,MCA state-code reference; commonly used as a CIN location token.
+MP,Madhya Pradesh,state,current,MCA state-code reference; commonly used as a CIN location token.
+MZ,Mizoram,state,current,MCA state-code reference; commonly used as a CIN location token.
+NL,Nagaland,state,current,MCA state-code reference; commonly used as a CIN location token.
+OD,Odisha,state,current,MCA state-abbreviation code; newer reference form.
+OR,Odisha,state,legacy,Older Odisha form retained in existing CIN records; do not discard historical CINs using OR.
+PB,Punjab,state,current,MCA state-code reference; commonly used as a CIN location token.
+PY,Puducherry,state,current,MCA state-code reference; commonly used as a CIN location token.
+RJ,Rajasthan,state,current,MCA state-code reference; commonly used as a CIN location token.
+SK,Sikkim,state,current,MCA state-code reference; commonly used as a CIN location token.
+TG,Telangana,state,observed,Observed in published CIN records; MCA state-abbreviation tables use TS. Secondary-record evidence.
+TN,Tamil Nadu,state,current,MCA state-code reference; commonly used as a CIN location token.
+TR,Tripura,state,current,MCA state-code reference; commonly used as a CIN location token.
+TS,Telangana,state,alias,MCA state-abbreviation-table form; do not assume it is interchangeable with TG in a CIN without record evidence.
+UK,Uttarakhand,state,alias,"MCA state-abbreviation-table form. The supplied Uttarakhand company-master extract shows UR and UT in CINs, not UK."
+UP,Uttar Pradesh,state,current,MCA state-code reference; commonly used as a CIN location token.
+UR,Uttarakhand,state,current,Observed extensively in Uttarakhand company-master data and in an official Uttarakhand PSU document.
+UT,Uttarakhand,state,current,"Observed extensively in the supplied Uttarakhand company-master extract, including registrations through 2026; also appears in recent secondary records."
+UW,Uttarakhand,state,observed,"One active CIN in the supplied Uttarakhand extract uses UW (Genus Innovation Ltd., 1998). Treat as an exceptional historical token; confirm against MCA before allowing broadly."
+WB,West Bengal,state,current,MCA state-code reference; commonly used as a CIN location token.
+FLC,Public limited foreign company incorporated in India,company_type,current,Government statistical CIN guidance wording; avoid substituting looser secondary descriptions.
+FTC,Private limited foreign company incorporated in India,company_type,current,Government statistical CIN guidance wording; avoid substituting looser secondary descriptions.
+GAP,Guarantee and association — public,company_type,legacy,Legacy/rare ownership category in government statistical CIN guidance.
+GAT,Guarantee and association — private,company_type,legacy,Legacy/rare ownership category in government statistical CIN guidance.
+GOI,Union Government company,company_type,current,Government statistical CIN guidance lists this ownership code.
+NPL,Section 25 company,company_type,legacy,"Legacy code associated with Section 25 of the Companies Act, 1956; Section 8 is the modern statutory successor category."
+OPC,One Person Company,company_type,current,"Recognised under the Companies Act, 2013 and MCA incorporation guidance."
+PLC,Public limited Indian non-government company,company_type,current,Government statistical CIN guidance lists this ownership code.
+PLN,Public limited Nidhi company,company_type,observed,Observed in Nidhi-company CIN records on secondary company-information sites; not confirmed in the cited government ownership-code list.
+PTC,Private limited Indian non-government company,company_type,current,Government statistical CIN guidance lists this ownership code.
+SGC,State Government company,company_type,current,Government statistical CIN guidance lists this ownership code.
+ULL,Unlimited-liability public company,company_type,legacy,Legacy/rare ownership category in government statistical CIN guidance.
+ULT,Unlimited-liability private company,company_type,legacy,Legacy/rare ownership category in government statistical CIN guidance.
