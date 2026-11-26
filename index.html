@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CIN and LLPIN checker | FileSure</title>
+<meta name="description" content="Validate the format of CIN and LLPIN identifiers and decode what each number contains.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap bar">
+    <a class="wordmark" href="/" aria-label="FileSure home">FileSure</a>
+    <span class="tool-name">CIN and LLPIN checker</span>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <h1>Understand your CIN and LLPIN identifiers.</h1>
+    <p>Validate identifier formats and decode the information contained in each number.</p>
+  </section>
+
+  <section aria-labelledby="in-label">
+    <label id="in-label" for="input" class="field-label">Paste identifiers, one per line</label>
+    <textarea id="input" spellcheck="false" autocomplete="off" autocapitalize="characters" rows="8"
+      placeholder="L17110MH1973PLC019786&#10;AAA-1234&#10;U74999UT2020PTC123456"></textarea>
+    <div class="actions">
+      <button id="check" class="btn primary" type="button">Check identifiers</button>
+      <button id="clear" class="btn" type="button">Clear</button>
+      <button id="sample" class="btn link" type="button">Try sample input</button>
+      <span id="count" class="count" aria-live="polite"></span>
+    </div>
+    <p class="disclaimer" role="note">This tool validates identifier structure and decodes encoded fields. It does not verify company or LLP existence, registration status, or current listing status against the MCA registry.</p>
+  </section>
+
+  <section id="results" class="results" aria-live="polite" hidden>
+    <div id="summary" class="summary"></div>
+    <label class="filter"><input type="checkbox" id="only-invalid"> Show invalid only</label>
+    <div id="list"></div>
+  </section>
+</main>
+
+<footer class="site-footer"><div class="wrap">FileSure &middot; Format checks run in your browser. Nothing you paste is sent anywhere.</div></footer>
+
+<script src="src/reference-data.js"></script>
+<script src="src/validator.js"></script>
+<script src="src/batch.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

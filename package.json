@@ -1,0 +1,10 @@
+{
+  "name": "cin-llpin-checker",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Checks the structure of CINs and LLPINs and decodes what they contain. No registry lookup.",
+  "scripts": {
+    "build:data": "node scripts/build-reference-data.mjs",
+    "test": "node --test \"test/*.test.js\""
+  }
+}
