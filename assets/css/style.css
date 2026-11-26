@@ -54,3 +54,10 @@ dd.na{color:var(--muted);font-weight:400;font-style:italic}
 .errors li+li{margin-top:4px}
 .site-footer{margin-top:56px;padding:20px 0;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
 @media(max-width:560px){.summary{grid-template-columns:repeat(2,1fr)}.summary div:nth-child(3){border-left:0}.summary div:nth-child(n+3){border-top:1px solid var(--line)}.tool-name{display:none}.count{margin-left:0;width:100%}.btn.primary{flex:1}}
+/* two-page navigation */
+.nav{display:flex;flex-wrap:wrap;gap:4px}
+.nav a{display:inline-flex;align-items:center;min-height:44px;padding:0 12px;border-radius:6px;font-size:14px;font-weight:500;color:var(--muted);text-decoration:none}
+.nav a:hover{background:#eef0f4;color:var(--ink)}
+.nav a[aria-current="page"]{background:#e6e9ef;color:var(--ink)}
+.errors a{color:#7a1a12;font-weight:600}
+@media(max-width:420px){.bar{height:auto;padding-top:6px;padding-bottom:6px;flex-wrap:wrap}.nav a{padding:0 10px}}
